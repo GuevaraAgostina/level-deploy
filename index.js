@@ -8,14 +8,22 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
-//prefijo /productos
-const productosRouter= require("./routes/productos.routes");
-app.use("/productos", productosRouter);
 
 //prefijo de /
 app.get("/", (req,res)=>{
     res.send("Hola desde express");
 });
+
+// /numerodelacategoria, traigo array por id categorias
+const productosparams = require("./routes/productos.routes");
+app.use("/",productosparams);
+
+//meth post
+// const insert = require("./routes/productos.routes");
+// app.use("/",insert);
+
+
+
 
 
 

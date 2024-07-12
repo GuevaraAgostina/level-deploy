@@ -7,4 +7,9 @@ const controller = require('../controllers/productos.controllers')
 
 router.get ("/",controller.index);
 
+// prefijo /id
+router.get("/:id",controller.show);
+
+router.post("/", controller.store);
+
 module.exports=router;
