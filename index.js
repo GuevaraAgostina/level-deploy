@@ -1,34 +1,26 @@
-const exp = require("constants");
 const express = require("express");
 const app = express();
-
 const path = require("path");
 
+// Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
 
+// Middleware para parsear JSON
 app.use(express.json());
 
 
-//prefijo de /
+// Ruta base
 app.get("/", (req,res)=>{
     res.send("Hola desde express");
 });
 
-// /numerodelacategoria, traigo array por id categorias
+// array de productos por id_categoria
 const productosparams = require("./routes/productos.routes");
-app.use("/",productosparams);
+app.use("/productos",productosparams);
 
-//meth post
-// const insert = require("./routes/productos.routes");
-// app.use("/",insert);
+// const putt= require("./routes/productos.routes");
+// app.use("/productos/:id",putt );
 
-
-
-
-
-
-
-
+// Puerto de escucha
 const port=3306;
-
 app.listen(port,()=> console.log(`http ://localhost:${port}`));
