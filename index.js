@@ -20,4 +20,3 @@ app.use("/productos", productosparams);
 // Puerto de escucha
 const port = 3307;
 app.listen(port, () => console.log(`http://localhost:${port}`));
-
