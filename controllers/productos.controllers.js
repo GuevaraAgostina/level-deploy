@@ -42,7 +42,6 @@ const show = (req, res) => {
     });
 };
 
-
 // método POST para agregar productos
 const store = (req, res) => {
     const { nombre, descripcion, precio, stock, id_categorias } = req.body;
@@ -101,6 +100,7 @@ const destroy = (req, res) => {
         res.json({ message: "Producto eliminado correctamente" });
     });
 };
+
 
 module.exports = {
     index,
