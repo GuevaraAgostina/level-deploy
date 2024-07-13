@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -18,5 +19,5 @@ const productosparams = require("./routes/productos.routes");
 app.use("/productos", productosparams);
 
 // Puerto de escucha
-const port = 3307;
-app.listen(port, () => console.log(`http://localhost:${port}`));
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
