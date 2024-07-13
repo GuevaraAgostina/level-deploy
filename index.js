@@ -8,19 +8,15 @@ app.use(express.static(path.join(__dirname, "public")));
 // Middleware para parsear JSON
 app.use(express.json());
 
-
 // Ruta base
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
     res.send("Hola desde express");
 });
 
-// array de productos por id_categoria
+// Rutas para productos
 const productosparams = require("./routes/productos.routes");
-app.use("/productos",productosparams);
-
-// const putt= require("./routes/productos.routes");
-// app.use("/productos/:id",putt );
+app.use("/productos", productosparams);
 
 // Puerto de escucha
-const port=3306;
-app.listen(port,()=> console.log(`http ://localhost:${port}`));
+const port = 3307;
+app.listen(port, () => console.log(`http://localhost:${port}`));
